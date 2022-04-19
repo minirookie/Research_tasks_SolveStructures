@@ -4,7 +4,7 @@
 source /opt/phenix-1.12-2829/phenix_env.sh   #change accordingly if using HPC or other Linux nodes because the version may be different
 source /opt/ccp4/ccp4-7.0/bin/ccp4.setup-sh
 
-working="/mnt/auto/fischergrp/common/Xray_Data/2020/feb06_SERCAT_ID/Shanshan/013I_002-04/xia2Process/"
+working="/mnt/auto/data_directory/xia2Process/"
 
 cd $working
 
