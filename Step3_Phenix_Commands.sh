@@ -1,10 +1,9 @@
-source /opt/phenix-1.12-2829/phenix_env.sh
+source /opt/phenix-1.12-2829/phenix_env.sh      #change accordingly if the version on the computer used is different
 source /opt/ccp4/ccp4-7.0/bin/ccp4.setup-sh
 
-phenix.refine /mnt/auto/fischergrp/common/Xray_Data/2020/feb06_SERCAT_ID/Shanshan/013I_002-04/PhaserProcess/MFP013IADPsoaking_02-04_2LoopsMonomerMR_2nmol.mtz \
-/mnt/auto/fischergrp/common/Xray_Data/2020/mar05_SERCAT_ID/Shanshan/MF003-13/PhenixRefineRun/CootEdit/MFP013_03-13_MRmodelEdit_Ver3.pdb \
-input.sequence.file_name="/mnt/auto/fischergrp/syu/Documents/hTRAP1CTDInfo/MFP013.fasta" \
-input.xray_data.labels='/mnt/auto/fischergrp/common/Xray_Data/2020/feb06_SERCAT_ID/Shanshan/013I_002-04/PhaserProcess/MFP013IADPsoaking_02-04_2LoopsMonomerMR_2nmol.mtz:F(+),SIGF(+),F(-),SIGF(-),merge' \
+phenix.refine /mnt/auto/data_diectory/MFP013_03-13_MRmodelEdit_Ver3.pdb \
+input.sequence.file_name="/mnt/auto/data_diectory/hTRAP1CTDInfo/MFP013.fasta" \
+input.xray_data.labels='/mnt/auto/data_diectory/MFP013IADPsoaking_02-04_2LoopsMonomerMR_2nmol.mtz:F(+),SIGF(+),F(-),SIGF(-),merge' \
 xray_data.force_anomalous_flag_to_be_equal_to=true \
 refinement.input.xray_data.convert_to_non_anomalous_if_ratio_pairs_lone_less_than_threshold=0.2 \
 output.serial=1 \
@@ -25,8 +24,8 @@ refinement.ordered_solvent.output_chain_id=D \
 simulated_annealing=false simulated_annealing.mode=first \
 simulated_annealing.start_temperature=4000 \
 
-#/mnt/auto/fischergrp/common/Xray_Data/2020/feb06_SERCAT_ID/Shanshan/013I_002-04/xia2Process/DataFiles/AllFrame_IADP013_002-04_free.mtz \
-#/mnt/auto/fischergrp/common/Xray_Data/2020/mar05_SERCAT_ID/Shanshan/MF003-13/PhenixRefineRun/RefineScript/group_se_1.params \
+#/mnt/auto/data_diectory/AllFrame_IADP013_002-04_free.mtz \  #optional commands for references
+#/mnt/auto/data_diectory/group_se_1.params \                 #optional commands for more parameters
 #xray_data.force_anomalous_flag_to_be_equal_to=true \
 #anomalous_scatterers.group.selection="element SE" \
 #anomalous_scatterers.group.f_prime=-24.99 \
