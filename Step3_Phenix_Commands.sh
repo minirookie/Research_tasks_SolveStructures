@@ -27,6 +27,7 @@ refinement.ordered_solvent.output_chain_id=D \
 simulated_annealing=false simulated_annealing.mode=first \
 simulated_annealing.start_temperature=4000 \
 
+# More commands for set up parameters
 #/mnt/auto/data_diectory/AllFrame_IADP013_002-04_free.mtz \  #optional commands for references
 #/mnt/auto/data_diectory/group_se_1.params \                 #optional commands for more parameters
 #xray_data.force_anomalous_flag_to_be_equal_to=true \
@@ -35,4 +36,23 @@ simulated_annealing.start_temperature=4000 \
 #anomalous_scatterers.group.f_double_prime=7.99 \
 #anomalous_scatterers.group.refine=f_prime+f_double_prime \
 #wxc_scale=5 wxu_scale=10 \
+
+#Commands to run Phenix on HPC, with a For loop function
+module load ccp4/7.0 xds/2019 phenix/1.14-3260    
+source phenix_env.sh
+source /hpcf/authorized_apps/rhel7_apps/ccp4/ccp4-7.0/bin/ccp4.setup-sh   #the HPC package setup/version
+
+for i in 006-003 006-009 006-013 006-001
+do
+        cd "/research/home/data_directory/$i"
+        pwd
+
+phenix.phaser HKLI /research/home/data_directory/$i/DataFiles/AUTOMATIC_DEFAULT_free.mtz \
+ENSE Jak2JH1 PDB /research/home/data_directory/Jak2JH1SearchEnsemble.pdb \
+IDEN 0.9 COMP PROT SEQ /research/home/data_directory/MFP053.fasta \
+NUM 1 SEAR ENSE Jak2JH1 NUM 1 \
+SPAC P3121 SGAL ALL \
+ROOT Ruxo$i-EnseSearch \
+
+done
 
