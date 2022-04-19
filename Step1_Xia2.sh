@@ -9,7 +9,7 @@ working="/mnt/auto/fischergrp/common/Xray_Data/2020/feb06_SERCAT_ID/Shanshan/013
 cd $working
 
 xia2 pipeline=dials \
-image=/mnt/auto/fischergrp/common/Xray_Data/2020/feb06_SERCAT_ID/Shanshan/013I_002-04/MF-002_Pn4_000001.cbf.gz:1:720 \
+image=/mnt/auto/data_directory/MF-002_Pn4_000001.cbf.gz:1:720 \
 xia2.settings.space_group=P41212 \
 xia2.settings.resolution.d_min=2.59 \	#resolution cutoff
 cc_half=0.5 \
@@ -24,12 +24,12 @@ dials.find_spots.filter_ice_rings=false \
 
 for i in K16 K11    # example for FOR loop run Xia2 locally 
 do 
-	cd "/mnt/auto/home/fischergrp/mfischer/mf/xtal/processing/2018Apr19_IDrt/MFxia2/PK/$i"
+	cd "/mnt/auto/data_directory/$i"
 	pwd
 	
 	# need a backslash "\" to set an exception for the _imagenumber.cbf.gz filename after using $i as the variable
-	xia2 image=/run/media/mfischer/FischerXtal/2018April19_SERCAT_ID-rt/MFischer/$i/$i\_000002.cbf.gz:1:580 xia2.settings.space_group=p43212 \
-	freer_file /research/home/fischergrp/mfischer/mf/xtal/processing/5kxv_phases.mtz \
+	xia2 image=/data_directory/$i/$i\_000002.cbf.gz:1:580 xia2.settings.space_group=p43212 \
+	freer_file /research/home/data_directory/4jux_phases.mtz \
 	cc_half=0.62 \
 	xia2.settings.resolution.d_min=1.1 \
 	cd ..
