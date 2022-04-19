@@ -3,7 +3,7 @@ source /opt/ccp4/ccp4-7.0/bin/ccp4.setup-sh
 
 #Comannds to run Phenix refine module
 phenix.refine /mnt/auto/data_diectory/MFP013_03-13_MRmodelEdit_Ver3.pdb \
-input.sequence.file_name="/mnt/auto/data_diectory/hTRAP1CTDInfo/MFP013.fasta" \
+input.sequence.file_name="/mnt/auto/data_diectory/MFP013.fasta" \
 input.xray_data.labels='/mnt/auto/data_diectory/MFP013IADPsoaking_02-04_2LoopsMonomerMR_2nmol.mtz:F(+),SIGF(+),F(-),SIGF(-),merge' \
 
 xray_data.force_anomalous_flag_to_be_equal_to=true \
