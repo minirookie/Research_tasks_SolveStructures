@@ -1,4 +1,4 @@
-# Xia2 is the 1st module in the processing pipeline, to 1) index & convert the original data into files suitable for following modules in the pipepline 
+# Xia2 is the 1st module in the processing pipeline, to 1) index & convert the original data into files to feed in following modules 
 # and 2) provide statistic measures & analysis to the original data 
 
 source /opt/phenix-1.12-2829/phenix_env.sh   #change accordingly if using HPC because it may install a different version
