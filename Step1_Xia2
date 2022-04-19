@@ -1,13 +1,39 @@
 # Xia2 is the 1st module in the processing pipeline, to 1) index & convert the original data into files suitable for following modules in the pipepline 
 # and 2) provide statistic measures & analysis to the original data 
-# example for FOR loop run locally
-# note that you need a backslash "\" to set an exception for the _imagenumber.cbf.gz filename after using $i as the variable
-# also has resolution cutoff d_min command below
+
+source /opt/phenix-1.12-2829/phenix_env.sh   #change accordingly if using HPC because it may install a different version
+source /opt/ccp4/ccp4-7.0/bin/ccp4.setup-sh
+
+working="/mnt/auto/fischergrp/common/Xray_Data/2020/feb06_SERCAT_ID/Shanshan/013I_002-04/xia2Process/"
+
+cd $working
+
+xia2 pipeline=dials \
+image=/mnt/auto/fischergrp/common/Xray_Data/2020/feb06_SERCAT_ID/Shanshan/013I_002-04/MF-002_Pn4_000001.cbf.gz:1:720 \
+xia2.settings.space_group=P41212 \
+xia2.settings.resolution.d_min=2.59 \	#resolution cutoff
+cc_half=0.5 \
+xia2.settings.input.anomalous=On \
+xia2.settings.project='AllFrame' \
+xia2.settings.crystal='IADP013_002-04' \
+dials.find_spots.filter_ice_rings=false \
+#xia2.settings.resolution.d_max=40.0 \  #optional command
+#freer_file				#optional command
+
+
+
+# example for FOR loop run Xia2 locally 
 
 for i in K16 K11 
 do 
 	cd "/mnt/auto/home/fischergrp/mfischer/mf/xtal/processing/2018Apr19_IDrt/MFxia2/PK/$i"
 	pwd
-	xia2 image=/run/media/mfischer/FischerXtal/2018April19_SERCAT_ID-rt/MFischer/$i/$i\_000002.cbf.gz:1:580 xia2.settings.space_group=p43212 freer_file /research/home/fischergrp/mfischer/mf/xtal/processing/5kxv_phases.mtz cc_half=0.62 xia2.settings.resolution.d_min=1.1
+	
+	# need a backslash "\" to set an exception for the _imagenumber.cbf.gz filename after using $i as the variable
+	xia2 image=/run/media/mfischer/FischerXtal/2018April19_SERCAT_ID-rt/MFischer/$i/$i\_000002.cbf.gz:1:580 xia2.settings.space_group=p43212 \
+	freer_file /research/home/fischergrp/mfischer/mf/xtal/processing/5kxv_phases.mtz \
+	cc_half=0.62 \
+	xia2.settings.resolution.d_min=1.1 \
 	cd ..
+	
 done
