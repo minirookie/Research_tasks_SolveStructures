@@ -22,9 +22,7 @@ dials.find_spots.filter_ice_rings=false \
 
 
 
-# example for FOR loop run Xia2 locally 
-
-for i in K16 K11 
+for i in K16 K11    # example for FOR loop run Xia2 locally 
 do 
 	cd "/mnt/auto/home/fischergrp/mfischer/mf/xtal/processing/2018Apr19_IDrt/MFxia2/PK/$i"
 	pwd
