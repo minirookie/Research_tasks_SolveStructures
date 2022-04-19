@@ -17,8 +17,8 @@ xia2.settings.input.anomalous=On \
 xia2.settings.project='AllFrame' \
 xia2.settings.crystal='IADP013_002-04' \
 dials.find_spots.filter_ice_rings=false \
-#xia2.settings.resolution.d_max=40.0 \  #optional command
-#freer_file				#optional command
+#xia2.settings.resolution.d_max=40.0 \  #optional command to set lowest resolution
+#freer_file				#optional command to set up indexing reference and copy the spacegroup assignment
 
 
 
