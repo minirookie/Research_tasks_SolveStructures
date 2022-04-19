@@ -20,6 +20,6 @@ do
 	grep ".pdb"  DIMP_$PDB/screen.log
 	grep " 1 rwcontents" DIMP_$PDB/screen.log
 	grep "refmac5 restr" DIMP_$PDB/screen.log
-	echo "-------------"
+	echo "----"
 done
 
