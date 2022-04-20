@@ -57,3 +57,44 @@ ROOT Ruxo$i-EnseSearch \
 
 done
 
+#Commands to run CCP4 Matthew Coefficient and Phaser
+matthews_coef << eof
+CELL 110.22 110.22 60.61 
+SYMM 78 
+MOLW 16992.0
+AUTO 
+RESO 3
+XMLO
+eof
+
+
+phaser << eof
+TITL MFP022_010-07_3LoopsDimerMR_2nmol
+MODE MR_AUTO
+HKLI /mnt/auto/data_directory/Trunc251-521F_P43_MFP022_010-07_free.mtz
+ENSE hHSP90aCTD PDB /mnt/auto/data_directory/hsHSP90a_CTDDimer_3LoopsTrunc_3q6m.pdb IDEN 95
+SEAR ENSE hHSP90aCTD NUM 2
+COMP PROT SEQ /mnt/auto/data_directory/MFP022.fasta NUM 4
+ROOT MFP022_010-07_3LoopsDimerMR_2nmol
+SELECT TEST ALL
+MUTE OFF
+VERBOSE ON EXTRA
+SCRIPT ON
+eof
+
+
+phaser -xml 013I_002-04_phaser
+MODE MR_AUTO
+HKLI /mnt/auto/data_directory/AllFrame_IADP013_002-04_free.mtz
+ENSE hTRAP1CTD PDB /mnt/auto/data_directory/hsTRAP1CTD_Echain_MRmodel_trunc01.pdb IDEN 90
+ENSE hTRAP1CTD PDB /mnt/auto/data_directory/hsTRAP1CTD_Echain_MRmodel_trunc02.pdb IDEN 90
+COMP PROT SEQ /mnt/auto/data_directory/MFP013.fasta NUM 2
+SEAR ENSE hTRAP1CTD NUM 2
+ROOT IADP013_002-04_AllFrame
+SPAC 92 
+SELECT TEST ALL
+MUTE OFF
+VERBOSE ON EXTRA
+SCRIPT ON
+START
+
